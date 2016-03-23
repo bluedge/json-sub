@@ -1,0 +1,26 @@
+{
+  "name": "json-sub",
+  "version": "1.0.0",
+  "description": "Substitute placeholders in json Objects.",
+  "main": "index.js",
+  "keywords": ["json", "placeholder", "substitute", "replace", "regular expression", "regex"],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluedge/json-sub.git"
+  },
+  "author": {
+    "name": "Nicolas Alessandra",
+    "email": "nico@bluedge.co.uk",
+    "url": "http://bluedge.co.uk/"
+  },
+  "licenses": [ {
+    "type": "MIT",
+    "url": "http://www.opensource.org/licenses/MIT" 
+  } ],
+  "dependencies": {},
+  "devDependencies": {},
+  "engines": { "node": ">= 0.4.0" }
+}
