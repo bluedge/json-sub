@@ -32,4 +32,11 @@ npm install json-sub
 	var jsonSub(json, variables, function(result) {
 		console.log(result);
 	});
+	
+	
+	// OUTPUTS
+	[
+		{ method: 'get', path: '/reports/mc1234567d/members' },
+		{ method: 'get', path: '/city/76890/turnover' }
+	]
 ```  
