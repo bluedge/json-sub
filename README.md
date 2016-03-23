@@ -35,8 +35,8 @@ npm install json-sub
 	
 	
 	// OUTPUTS
-	[
+	/* [
 		{ method: 'get', path: '/reports/mc1234567d/members' },
 		{ method: 'get', path: '/city/76890/turnover' }
-	]
+	] */
 ```  
