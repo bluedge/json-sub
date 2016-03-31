@@ -1,13 +1,24 @@
 function jsonSub() {	
 	/**
 	 * Replace Placeholders in any JSON
+	 * Member mode allow to replace object member 
+	 * without using the {{}} of left part of the variables
 	 * @param json {Object}
 	 * @param variables {Object}
+	 * @param memberMode {Boolean}
 	 * @param callback {Function}
 	**/
-	var substitute = function (json, variables, callback) {
+	var substitute = function (json, variables, memberMode, callback) {
+		if (typeof memberMode == 'function') {
+			callback = memberMode;
+			var member_mode = memberMode || false;
+		} else {
+			var member_mode = memberMode || false;
+		}
+			
 		var str = JSON.stringify(json);
 		var output = str.replace(/\{{\w+}}/g, function(found) {
+			found = (member_mode) ? found.replace(/\{|}/g, '') : found;
 			return variables[found] || found;
 		});
 	
@@ -17,14 +28,19 @@ function jsonSub() {
 	
 	/**
 	 * Replace Placeholders in any JSON
-	 * Synchronous mode
+	 * in Synchronous mode
+	 * Member mode allow to replace object member 
+	 * without using the {{}} of left part of the variables
 	 * @param json {Object}
 	 * @param variables {Object}
+	 * @param memberMode {Boolean}
 	 * return {Object}
 	**/
-	substituteSync = function (json, variables) {
+	substituteSync = function (json, variables, memberMode) {
+		var member_mode = memberMode || false;
 		var str = JSON.stringify(json);
 		var output = str.replace(/\{{\w+}}/g, function(found) {
+			found = (member_mode) ? found.replace(/\{|}/g, '') : found;
 			return variables[found] || found;
 		});
 		

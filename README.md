@@ -1,6 +1,8 @@
 #jsonSub
 Lightweight module for substitution in json object. Use {{placeholder}} (double curly braces) to define your placeholder in the json object and the variables object.
 
+'''Option''' : memberMode {Boolean}  Member mode allows to replace object member without using the {{}} of left part of the variables
+
 
 ## Install
 
@@ -28,10 +30,23 @@ npm install json-sub
 		'{{store_id}}' : 76890
 	}
 	
+	/** Variables in memberMode
+	var variables = {
+		'campaign_id' : 'mc1234567d',
+		'store_id' : 76890
+	}
+	**/
+	
 	// Substitution
 	var jsonSub(json, variables, function(result) {
 		console.log(result);
 	});
+	
+	/** With memberMode : true
+	var jsonSub(json, variables, true, function(result) {
+		console.log(result);
+	});
+	**/
 	
 	
 	// OUTPUTS
@@ -48,5 +63,9 @@ npm install json-sub
 	
 	// In Synchronous mode
 	var result = jsonSub.SubSync(json, variables);
+	
+	/** With memberMode : true
+	var result = jsonSub.SubSync(json, variables, true);
+	**/
 	
 ``` 

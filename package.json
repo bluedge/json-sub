@@ -1,6 +1,6 @@
 {
   "name": "json-sub",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Substitute placeholders in json Objects.",
   "main": "index.js",
   "keywords": ["json", "placeholder", "substitute", "replace", "regular expression", "regex", "sync"],
