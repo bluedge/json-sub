@@ -12,7 +12,7 @@ npm install json-sub
 ### Usage Example
 
 ```js
-	var jsonSub = require('json-sub');
+	var jsonSub = require('json-sub')();
 	
 	var json = [{
 		method : 'get',
@@ -44,7 +44,7 @@ npm install json-sub
 
 ### Synchronous Method
 ```js
-	var jsonSub = require('json-sub');
+	var jsonSub = require('json-sub')();
 	
 	// In Synchronous mode
 	var result = jsonSub.SubSync(json, variables);
