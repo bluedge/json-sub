@@ -40,3 +40,13 @@ npm install json-sub
 		{ method: 'get', path: '/city/76890/turnover' }
 	] */
 ```  
+
+
+### Synchronous Method
+```js
+	var jsonSub = require('json-sub');
+	
+	// In Synchronous mode
+	var result = jsonSub.SubSync(json, variables);
+	
+``` 
