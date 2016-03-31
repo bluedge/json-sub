@@ -4,4 +4,8 @@
 	
 1.1.0 / 2016-03-31
 ==================
-	* Add Synchronous method  
+	* Add Synchronous method
+
+1.1.1 / 2016-03-31
+==================
+	* Add memberMode option  
