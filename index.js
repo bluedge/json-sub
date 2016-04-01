@@ -24,14 +24,23 @@ function jsonSub() {
 			found = (member_mode) ? found.replace(/\{|}/g, '') : found;
 			
 			// Traverse object
-			var f = null;
+			var f;
 			traverse(variables).forEach(function (x) {
-				if (typeof x[found] != 'undefined') {
-					f = x[found];
+				if (x && typeof x[found] != 'undefined') {
+					if (typeof x[found] != 'string') {
+						// Stringify if not string yet
+						return f = JSON.stringify(x[found]);
+					} else {
+						return f = x[found] || found;
+					}
 				}
 			});
 			return f;
 		});
+		
+		// Array must have the first and last " stripped
+		// otherwise the JSON object won't be valid on parse
+		output = output.replace(/"\[(.*)\]"/, '[$1]');
 	
 		callback(JSON.parse(output));
 	}
@@ -54,15 +63,24 @@ function jsonSub() {
 			found = (member_mode) ? found.replace(/\{|}/g, '') : found;
 			
 			// Traverse object
-			var f = null;
+			var f;
 			traverse(variables).forEach(function (x) {
-				if (typeof x[found] != 'undefined') {
-					f = x[found];
+				if (x && typeof x[found] != 'undefined') {
+					if (typeof x[found] != 'string') {
+						// Stringify if not string yet
+						return f = JSON.stringify(x[found]);
+					} else {
+						return f = x[found] || found;
+					}
 				}
 			});
 			return f;
 		});
 		
+		// Array must have the first and last " stripped
+		// otherwise the JSON object won't be valid on parse
+		output = output.replace(/"\[(.*)\]"/, '[$1]');
+
 		return JSON.parse(output);
 	}
 		
