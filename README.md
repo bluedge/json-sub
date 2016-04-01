@@ -38,12 +38,12 @@ npm install json-sub
 	**/
 	
 	// Substitution
-	var jsonSub(json, variables, function(result) {
+	var jsonSub.substitute(json, variables, function(result) {
 		console.log(result);
 	});
 	
 	/** With memberMode : true
-	var jsonSub(json, variables, true, function(result) {
+	var jsonSub.substitute(json, variables, true, function(result) {
 		console.log(result);
 	});
 	**/
@@ -62,10 +62,10 @@ npm install json-sub
 	var jsonSub = require('json-sub')();
 	
 	// In Synchronous mode
-	var result = jsonSub.SubSync(json, variables);
+	var result = jsonSub.substituteSync(json, variables);
 	
 	/** With memberMode : true
-	var result = jsonSub.SubSync(json, variables, true);
+	var result = jsonSub.substituteSync(json, variables, true);
 	**/
 	
 ``` 
