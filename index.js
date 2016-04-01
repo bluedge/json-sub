@@ -26,7 +26,7 @@ function jsonSub() {
 			// Traverse object
 			var f = null;
 			traverse(variables).forEach(function (x) {
-				if (typeof x[found] != 'undefined') {
+				if (x && typeof x[found] != 'undefined') {
 					f = x[found];
 				}
 			});
@@ -56,7 +56,7 @@ function jsonSub() {
 			// Traverse object
 			var f = null;
 			traverse(variables).forEach(function (x) {
-				if (typeof x[found] != 'undefined') {
+				if (x && typeof x[found] != 'undefined') {
 					f = x[found];
 				}
 			});
