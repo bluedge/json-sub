@@ -8,4 +8,9 @@
 
 1.1.1 / 2016-03-31
 ==================
-	* Add memberMode option  
+	* Add memberMode option 
+
+
+1.2.0 / 2016-04-01
+==================
+	* Add Traverse object abilities  

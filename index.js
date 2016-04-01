@@ -1,4 +1,4 @@
-var traverse 		= require('traverse');
+var traverse = require('traverse');
 
 
 function jsonSub() {	

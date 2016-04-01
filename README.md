@@ -1,7 +1,7 @@
 #jsonSub
 Lightweight module for substitution in json object. Use {{placeholder}} (double curly braces) to define your placeholder in the json object and the variables object.
 
-'''Option''' : memberMode {Boolean}  Member mode allows to replace object member without using the {{}} of left part of the variables
+**Option** : memberMode {Boolean}  Member mode allows to replace object member without using the {{}} of left part of the variables
 
 
 ## Install

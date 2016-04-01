@@ -1,6 +1,6 @@
 {
   "name": "json-sub",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Substitute placeholders in json Objects.",
   "main": "index.js",
   "keywords": ["json", "placeholder", "substitute", "replace", "regular expression", "regex", "sync"],
@@ -16,12 +16,9 @@
     "email": "nico@bluedge.co.uk",
     "url": "http://bluedge.co.uk/"
   },
-  "licenses": [ {
-    "type": "MIT",
-    "url": "http://www.opensource.org/licenses/MIT" 
-  } ],
+  "license": "MIT",
   "dependencies": {
-	  "traverse": "0.6.6"
+	  "traverse": "0.6.6" 
   },
   "devDependencies": {},
   "engines": { "node": ">= 0.4.0" }
