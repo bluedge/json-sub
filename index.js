@@ -1,3 +1,6 @@
+var traverse 		= require('traverse');
+
+
 function jsonSub() {	
 	/**
 	 * Replace Placeholders in any JSON
@@ -19,7 +22,15 @@ function jsonSub() {
 		var str = JSON.stringify(json);
 		var output = str.replace(/\{{\w+}}/g, function(found) {
 			found = (member_mode) ? found.replace(/\{|}/g, '') : found;
-			return variables[found] || found;
+			
+			// Traverse object
+			var f = null;
+			traverse(variables).forEach(function (x) {
+				if (typeof x[found] != 'undefined') {
+					f = x[found];
+				}
+			});
+			return f;
 		});
 	
 		callback(JSON.parse(output));
@@ -41,7 +52,15 @@ function jsonSub() {
 		var str = JSON.stringify(json);
 		var output = str.replace(/\{{\w+}}/g, function(found) {
 			found = (member_mode) ? found.replace(/\{|}/g, '') : found;
-			return variables[found] || found;
+			
+			// Traverse object
+			var f = null;
+			traverse(variables).forEach(function (x) {
+				if (typeof x[found] != 'undefined') {
+					f = x[found];
+				}
+			});
+			return f;
 		});
 		
 		return JSON.parse(output);
