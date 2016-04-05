@@ -17,12 +17,12 @@ npm install json-sub
 	var jsonSub = require('json-sub')();
 	
 	var json = [{
-		method : 'get',
-		path : '/reports/{{campaign_id}}/members',
+		"method" : "get",
+		"path" : "/reports/{{campaign_id}}/members",
 	},
 	{
-		method : 'get',
-		path : '/city/{{store_id}}/turnover',
+		"method" : "get",
+		"path" : "/city/{{store_id}}/turnover",
 	}];
 
 	var variables = {
@@ -38,12 +38,12 @@ npm install json-sub
 	**/
 	
 	// Substitution
-	var jsonSub.substitute(json, variables, function(result) {
+	jsonSub.substitute(json, variables, function(result) {
 		console.log(result);
 	});
 	
 	/** With memberMode : true
-	var jsonSub.substitute(json, variables, true, function(result) {
+	jsonSub.substitute(json, variables, true, function(result) {
 		console.log(result);
 	});
 	**/
