@@ -29,9 +29,9 @@ function jsonSub() {
 				if (x && typeof x[found] != 'undefined') {
 					if (typeof x[found] != 'string') {
 						// Stringify if not string yet
-						return f = JSON.stringify(x[found]);
+						f = JSON.stringify(x[found]);
 					} else {
-						return f = x[found] || found;
+						f = x[found] || found;
 					}
 				}
 			});
@@ -68,9 +68,9 @@ function jsonSub() {
 				if (x && typeof x[found] != 'undefined') {
 					if (typeof x[found] != 'string') {
 						// Stringify if not string yet
-						return f = JSON.stringify(x[found]);
+						f = JSON.stringify(x[found]);
 					} else {
-						return f = x[found] || found;
+						f = x[found] || found;
 					}
 				}
 			});
