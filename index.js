@@ -1,4 +1,6 @@
-var traverse = require('traverse');
+var traverse 		= require('traverse');
+var objectPath 		= require('object-path'); 
+
 
 
 function jsonSub() {	
@@ -20,18 +22,18 @@ function jsonSub() {
 		}
 			
 		var str = JSON.stringify(json);
-		var output = str.replace(/\{{\w+}}/g, function(found) {
-			found = (member_mode) ? found.replace(/\{|}/g, '') : found;
+		var output = str.replace(/{{\w+}}/g, function(found) {
+			found = (member_mode) ? found.match(/[\w\.]+/)[0] : found;
 			
 			// Traverse object
 			var f;
-			traverse(variables).forEach(function (x) {
-				if (x && typeof x[found] != 'undefined') {
-					if (typeof x[found] != 'string') {
+			traverse(variables).forEach(function (v) {
+				if (v && typeof v[found] != 'undefined') {
+					if (typeof v[found] != 'string') {
 						// Stringify if not string yet
-						f = JSON.stringify(x[found]);
+						f = JSON.stringify(v[found]);
 					} else {
-						f = x[found] || found;
+						f = v[found] || found;
 					}
 				}
 			});
@@ -56,25 +58,26 @@ function jsonSub() {
 	 * @param memberMode {Boolean}
 	 * return {Object}
 	**/
-	substituteSync = function (json, variables, memberMode) {
+	var substituteSync = function (json, variables, memberMode) {
 		var member_mode = memberMode || false;
 		var str = JSON.stringify(json);
-		var output = str.replace(/\{{\w+}}/g, function(found) {
-			found = (member_mode) ? found.replace(/\{|}/g, '') : found;
-			
+		var output = str.replace(/{{\w+}}/g, function(found) {
+			found = (member_mode) ? found.match(/[\w\.]+/)[0] : found;
+
 			// Traverse object
 			var f;
-			traverse(variables).forEach(function (x) {
-				if (x && typeof x[found] != 'undefined') {
-					if (typeof x[found] != 'string') {
+			traverse(variables).forEach(function (v) {
+				if (v && typeof v[found] != 'undefined') {
+					if (typeof v[found] == 'object') {
 						// Stringify if not string yet
-						f = JSON.stringify(x[found]);
+						console.log(v[found]);
 					} else {
-						f = x[found] || found;
+						f = v[found] || found;
 					}
 				}
+				return f;
 			});
-			return f;
+			
 		});
 		
 		// Array must have the first and last " stripped
@@ -83,11 +86,35 @@ function jsonSub() {
 
 		return JSON.parse(output);
 	}
+	
+	
+	
+	/**
+	 * Resolve object paths in variables 
+	 * and assigns the returned result 
+	 * from datamodel path
+	 * @param data {Object}
+	 * @param variables {Object}
+	 * return {Object}
+	**/
+	var addresser = function(datamodel, variables) {
+		traverse(datamodel).forEach(function(path) {
+			//console.log(path);
+			if (this.isLeaf && objectPath.has(variables, path)) {
+				this.update(objectPath.get(variables, path));
+			}
+		});
+		return datamodel;
+	}
+	
+	
+	
 		
 	
 	return {
 		substitute : substitute,
-		substituteSync : substituteSync
+		substituteSync : substituteSync,
+		addresser : addresser
 	}
 	
 }

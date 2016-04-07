@@ -69,3 +69,33 @@ npm install json-sub
 	**/
 	
 ``` 
+
+### Addresser Method
+```js
+	var jsonSub = require('json-sub')();
+	
+	var DataModel = {
+		reportOne : "report.memberOne",
+		reportTwo : "report.memberTwo",
+		winner : "report.winner.one"
+	};
+
+	var variables = {
+		report : {
+			memberOne: 'abcd123',
+			memberTwo: 'efg456',
+			winners : {
+				one : 'Alex',
+				two : 'Norman'
+			}
+		}	
+	};
+	
+	var add = jsonSub.addresser(DataModel, variables);
+	
+	// OUTPUTS
+	/*
+	{reportOne : 'abcd123', reportTwo: 'efg456', winner: 'Alex'}
+	*/
+	
+``` 

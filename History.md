@@ -17,3 +17,8 @@
 1.2.1 / 2016-04-05
 ==================
 	* Correct a bug in the Traverse loop
+	
+1.3.0 / 2016-04-05
+==================
+	* Updated the regex
+	* Add method addresser
