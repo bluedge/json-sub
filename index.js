@@ -75,8 +75,9 @@ function jsonSub() {
 						f = v[found] || found;
 					}
 				}
-				return f;
+
 			});
+			return f;
 			
 		});
 		
