@@ -77,7 +77,7 @@ npm install json-sub
 	var DataModel = {
 		reportOne : "report.memberOne",
 		reportTwo : "report.memberTwo",
-		winner : "report.winner.one"
+		winner1 : "report.winners.one"
 	};
 
 	var variables = {
